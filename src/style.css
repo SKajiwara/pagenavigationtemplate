@@ -2,6 +2,10 @@ h1,
 p {
   font-family: Lato;
 }
+html {
+  width: 100%;
+  height: 100%;
+}
 body {
   background-color: #f2f6ff;
   font-family: "Ubuntu", sans-serif;
@@ -9,15 +13,21 @@ body {
 
 .main {
   background-color: #fff;
-  width: 420px;
-  height: 510px;
-  border-radius: 1.5em !important;
-  margin: 7em auto;
+  max-height: 700px;
+  min-height: 520px;
+  max-width: 380px;
+  min-width: 380px;
+  border-radius: 30px !important;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
 }
 
 .sign {
   padding-top: 3em;
+  padding-bottom: 1em;
   color: #1a2151;
   font-family: "Ubuntu", sans-serif;
   font-weight: bold;
@@ -77,14 +87,14 @@ form.form1 {
   cursor: pointer;
   border-radius: 5em;
   color: #fff;
-  background: linear-gradient(to right, #9c27b0, #e040fb);
+  background: linear-gradient(to right, #8352fd, #785ebe);
   border: 0;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 15%;
+  padding-right: 15%;
   padding-bottom: 10px;
   padding-top: 10px;
   font-family: "Ubuntu", sans-serif;
-  margin-left: 35%;
+  margin-left: 30%;
   font-size: 13px;
   box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
 }
@@ -105,4 +115,15 @@ a {
   .main {
     border-radius: 0px;
   }
+}
+.mid-left .mid-center .mid-center {
+  position: absolute;
+}
+
+.flex-parent {
+  display: flex;
+}
+
+.jc-center {
+  justify-content: center;
 }

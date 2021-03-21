@@ -7,23 +7,10 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Login</Link>
-              </li>
-              <li>
-                <Link to="/courses">Courses</Link>
-              </li>
-              <li>
-                <Link to="/course">Course</Link>
-              </li>
-            </ul>
-          </nav>
-
-          {/* A <Switch> looks through its children <Route>s and
-              renders the first one that matches the current URL. */}
           <Switch>
+            <Route path="/menu">
+              <Menu />
+            </Route>
             <Route path="/courses">
               <Courses />
             </Route>
@@ -43,49 +30,69 @@ class App extends React.Component {
 class Login extends React.Component {
   render() {
     return (
-      <div>
-        <div className="main">
-          <p className="sign" align="center">
-            Sign in
-          </p>
-          <form className="form1">
-            <input
-              className="un "
-              type="text"
-              align="center"
-              placeholder="Username"
-            />
-            <input
-              className="pass"
-              type="password"
-              align="center"
-              placeholder="Password"
-            />
+      <div className="main">
+        <p className="sign" align="center">
+          Sign in
+        </p>
+        <form className="form1">
+          <input
+            className="un "
+            type="text"
+            align="center"
+            placeholder="Username"
+          />
+          <input
+            className="pass"
+            type="password"
+            align="center"
+            placeholder="Password"
+          />
+          {/* TODO: */}
+          <Link to="/menu">
             <a className="submit" align="center">
               Sign in
             </a>
-            <p className="forgot" align="center">
-              <a href="#">Forgot Password?</a>
-            </p>
-            <a href="#" />
-          </form>
-        </div>
-        <a href="#" />
+          </Link>
+          {/* 
+          <p className="forgot" align="center">
+            <a href="#">Forgot Password?</a>
+          </p>
+          */}
+        </form>
       </div>
     );
   }
 }
-
-class Courses extends React.Component {
+class Menu extends React.Component {
   render() {
-    return <h2>Courses</h2>;
+    return (
+      <div className="flex-parent jc-center">
+        <Link to="/Courses">
+          <button type="button">Developer/QA</button>
+        </Link>
+        <Link to="/Courses">
+          <button type="button">Sales</button>
+        </Link>
+        <Link to="/Courses">
+          <button type="button">Learn About Product</button>
+        </Link>
+      </div>
+    );
   }
 }
-
+class Courses extends React.Component {
+  render() {
+    const courses = { "Course A": 1, "Course B": 2, "Course C": 3 };
+    return (
+      <Link to="/Course">
+        <button type="button">Course</button>
+      </Link>
+    );
+  }
+}
 class Course extends React.Component {
   render() {
     return <h2>Course</h2>;
   }
 }
-
 export default App;
