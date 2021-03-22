@@ -16,7 +16,7 @@ class App extends React.Component {
         <div>
           <Switch>
             <Route exact path="/menu" component={Menu} />
-            <Route path="/menu/:courseId" component={Courses} />
+            <Route path="/menu/:categoryId" component={Courses} />
             <Route exact path="/404" component={NotFoundPage} />
             <Redirect to="/404" />
           </Switch>
