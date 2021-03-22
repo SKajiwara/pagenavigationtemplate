@@ -35,21 +35,47 @@ function Courses() {
   return (
     <div className="Courses">
       <h3>Course: {categoryId}</h3>
+      {category.courses.map((course, index) => {
+        return (
+          <Link to={`/menu/${categoryId}/${course.id}`}>
+            <h5 key={course}>
+              {index + 1} {": "}
+              {course.name}
+            </h5>
+          </Link>
+        );
+      })}
     </div>
   );
 }
 
 export default Courses;
-
-const categories = [
+// List of 3 Categories -> List of Courses -> List of Course (video/article)
+const mockDBdata = [
   {
     name: "Dev Course",
     courses: [
-      { name: "Pointman Mobile", videos: [{ name: "How to use " }] },
+      {
+        name: "Pointman Mobile",
+        videos: [
+          {
+            name: "How to use",
+            content: "This is a tutorial 1",
+            viodeUrl: "youtube.com",
+            quizId: "d23safaao22ada"
+          },
+          {
+            name: "Who uses it",
+            content: "This is a tutorial 1",
+            videoUrl: "youtube.com",
+            quitId: "khkhlh23klbhlg"
+          }
+        ]
+      },
       { name: "Pointman Cloud", videos: [] },
-      { name: "GPS Device", videos: [{ name: "How to use " }] }
+      { name: "GPS Device", videos: [] }
     ]
   },
-  { name: "Learn about Product course" },
-  { name: "Sales Coures " }
+  { name: "Learn about Product course", courses: [] },
+  { name: "Sales Coures ", courses: [] }
 ];

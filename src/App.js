@@ -1,5 +1,7 @@
 import React from "react";
 import "./style.css";
+import Courses from "./Courses.js";
+import Course from "./Course.js";
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,7 +9,6 @@ import {
   Link,
   Redirect
 } from "react-router-dom";
-import Courses from "./Courses.js";
 
 class App extends React.Component {
   render() {
@@ -18,6 +19,11 @@ class App extends React.Component {
             <Route exact path="/" component={Login} />
             <Route exact path="/menu" component={Menu} />
             <Route exact path="/menu/:categoryId" component={Courses} />
+            <Route
+              exact
+              path="/menu/:categoryId/:courseId"
+              component={Course}
+            />
             <Route exact path="/404" component={NotFoundPage} />
             <Redirect to="/404" />
           </Switch>
