@@ -1,7 +1,13 @@
 import React from "react";
 import "./style.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { DevCourses, ProdCourses, SalesCourses } from "./Courses";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect
+} from "react-router-dom";
+import Courses from "./Courses.js";
 
 class App extends React.Component {
   render() {
@@ -9,18 +15,10 @@ class App extends React.Component {
       <Router>
         <div>
           <Switch>
-            <Route path="/menu">
-              <Menu />
-            </Route>
-            <Route path="/courses">
-              <Courses />
-            </Route>
-            <Route path="/course">
-              <Course />
-            </Route>
-            <Route path="/">
-              <Login />
-            </Route>
+            <Route exact path="/menu" component={Menu} />
+            <Route path="/menu/:courseId" component={Courses} />
+            <Route exact path="/404" component={NotFoundPage} />
+            <Redirect to="/404" />
           </Switch>
         </div>
       </Router>
@@ -82,19 +80,7 @@ class Menu extends React.Component {
     );
   }
 }
-class Courses extends React.Component {
-  render() {
-    const courses = { "Course A": 1, "Course B": 2, "Course C": 3 };
-    return (
-      <Link to="/Course">
-        <button type="button">Course</button>
-      </Link>
-    );
-  }
-}
-class Course extends React.Component {
-  render() {
-    return <h2>Course</h2>;
-  }
+function NotFoundPage() {
+  return <h3>Page not found (404)</h3>;
 }
 export default App;
