@@ -1,5 +1,5 @@
 import React from "react";
-import "../src/style.css";
+import "./style.css";
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,8 +15,9 @@ class App extends React.Component {
       <Router>
         <div>
           <Switch>
+            <Route exact path="/" component={Login} />
             <Route exact path="/menu" component={Menu} />
-            <Route path="/menu/:categoryId" component={Courses} />
+            <Route exact path="/menu/:categoryId" component={Courses} />
             <Route exact path="/404" component={NotFoundPage} />
             <Redirect to="/404" />
           </Switch>
@@ -46,17 +47,11 @@ class Login extends React.Component {
             align="center"
             placeholder="Password"
           />
-          {/* TODO: */}
           <Link to="/menu">
             <a className="submit" align="center">
               Sign in
             </a>
           </Link>
-          {/* 
-          <p className="forgot" align="center">
-            <a href="#">Forgot Password?</a>
-          </p>
-          */}
         </form>
       </div>
     );
@@ -67,14 +62,14 @@ class Menu extends React.Component {
     return (
       <div className="flex-parent jc-center">
         {/* TODO: */}
-        <Link to="/Courses">
+        <Link to="/menu/DevCourses">
           <button type="button">Developer/QA</button>
         </Link>
-        <Link to="/Courses">
-          <button type="button">Sales</button>
-        </Link>
-        <Link to="/Courses">
+        <Link to="/menu/ProdCourses">
           <button type="button">Learn About Product</button>
+        </Link>
+        <Link to="/menu/SalesCourses">
+          <button type="button">Sales</button>
         </Link>
       </div>
     );
