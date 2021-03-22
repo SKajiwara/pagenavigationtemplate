@@ -40,3 +40,16 @@ function Courses() {
 }
 
 export default Courses;
+
+const categories = [
+  {
+    name: "Dev Course",
+    courses: [
+      { name: "Pointman Mobile", videos: [{ name: "How to use " }] },
+      { name: "Pointman Cloud", videos: [] },
+      { name: "GPS Device", videos: [{ name: "How to use " }] }
+    ]
+  },
+  { name: "Learn about Product course" },
+  { name: "Sales Coures " }
+];
