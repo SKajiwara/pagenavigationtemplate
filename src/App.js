@@ -61,7 +61,6 @@ class Menu extends React.Component {
   render() {
     return (
       <div className="flex-parent jc-center">
-        {/* TODO: */}
         <Link to="/menu/DevCourses">
           <button type="button">Developer/QA</button>
         </Link>

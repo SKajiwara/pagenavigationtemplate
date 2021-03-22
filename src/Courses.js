@@ -1,9 +1,20 @@
 import React from "react";
 import "./style.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams
+} from "react-router-dom";
 
-class Courses extends React.Component {
-  render() {
-    return <div className="DevCourses">DevCourses</div>;
-  }
+function Courses() {
+  let { categoryId } = useParams;
+  return (
+    <div className="Courses">
+      <h3>{categoryId}</h3>
+    </div>
+  );
 }
+
+export default Courses;
