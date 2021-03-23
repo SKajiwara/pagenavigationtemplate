@@ -31,15 +31,12 @@ function Course() {
           content: "This is a tutorial content 2",
           viodeUrl: "youtube.com",
           articleUrl: "",
-          quizId: "d23safaao22ada"
+          quizId: "gnghdrgdf3fsdf"
         }
       ]
     }
   ];
-  const content = contents.find(({ id }) => {
-    console.log(id, courseId);
-    return id === courseId;
-  });
+  const content = contents.find(({ id }) => id === courseId);
   console.log(content);
 
   return <h1>Welcome to {courseId}</h1>;
