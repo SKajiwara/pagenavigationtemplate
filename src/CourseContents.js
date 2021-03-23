@@ -7,7 +7,7 @@ import {
   Link,
   useParams
 } from "react-router-dom";
-
+// TODO: add filter function before passing data to route
 function CourseContents() {
   let { categoryId, courseId } = useParams();
   const courses = [
@@ -18,7 +18,7 @@ function CourseContents() {
         {
           id: "asdawt4534fsdfs",
           type: { video: true, article: false },
-          name: "How to use",
+          name: "How to use Pointman",
           content: "This is a tutorial content 1",
           viodeUrl: "youtube.com",
           articleUrl: "",
@@ -27,7 +27,7 @@ function CourseContents() {
         {
           id: "f45jg34dssgfsdfs",
           type: { video: true, article: false },
-          name: "Who uses it",
+          name: "Who uses Pointman",
           content: "This is a tutorial content 2",
           viodeUrl: "youtube.com",
           articleUrl: "",
@@ -45,7 +45,12 @@ function CourseContents() {
       </h1>
       {courseAndContents.contents.map((content, index) => {
         return (
-          <Link to={`/menu/${categoryId}/${courseId}/${content.id}`}>
+          <Link
+            to={{
+              pathname: `/menu/${categoryId}/${courseId}/${content.id}`,
+              state: { content: content }
+            }}
+          >
             <h3 key={content.id}>
               {index + 1}
               {". " + content.name}
