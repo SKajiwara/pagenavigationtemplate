@@ -8,7 +8,8 @@ import {
   useParams
 } from "react-router-dom";
 
-function Content() {
+function Content(props) {
+  console.log(props);
   return (
     <div className="content">
       <h1>Hello</h1>
