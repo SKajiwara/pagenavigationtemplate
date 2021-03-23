@@ -8,9 +8,9 @@ import {
   useParams
 } from "react-router-dom";
 
-function Course() {
-  let { courseId } = useParams();
-  const contents = [
+function CourseContents() {
+  let { categoryId, courseId } = useParams();
+  const courses = [
     {
       id: "543653",
       name: "Pointman Mobile",
@@ -36,10 +36,25 @@ function Course() {
       ]
     }
   ];
-  const content = contents.find(({ id }) => id === courseId);
-  console.log(content);
+  const courseAndContents = courses.find(({ id }) => id === courseId);
 
-  return <h1>Welcome to {courseId}</h1>;
+  return (
+    <div className="contents">
+      <h1>
+        Welcome to <u>{courseAndContents.name}</u> Course
+      </h1>
+      {courseAndContents.contents.map((content, index) => {
+        return (
+          <Link to={`/menu/${categoryId}/${courseId}/${content.id}`}>
+            <h3 key={content.id}>
+              {index + 1}
+              {". " + content.name}
+            </h3>
+          </Link>
+        );
+      })}
+    </div>
+  );
 }
 
-export default Course;
+export default CourseContents;

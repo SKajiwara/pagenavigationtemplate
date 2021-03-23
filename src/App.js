@@ -1,7 +1,8 @@
 import React from "react";
 import "./style.css";
 import Courses from "./Courses.js";
-import Course from "./Course.js";
+import CourseContents from "./CourseContents.js";
+import Content from "./Content.js";
 import {
   BrowserRouter as Router,
   Switch,
@@ -22,7 +23,7 @@ class App extends React.Component {
             <Route
               exact
               path="/menu/:categoryId/:courseId"
-              component={Course}
+              component={CourseContents}
             />
             <Route exact path="/404" component={NotFoundPage} />
             <Redirect to="/404" />
