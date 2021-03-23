@@ -16,9 +16,9 @@ function Courses() {
     {
       id: "DevCourses",
       courses: [
-        { id: "234512425", name: "Pointman", url: "dsadsad" },
-        { id: "412515124", name: "Cloud", url: "wgasdada" },
-        { id: "741321317", name: "Mobile", url: "kvjgiuiu" }
+        { id: "543653", index: "1", name: "Pointman Mobile" },
+        { id: "875324", index: "2", name: "Pointman Cloud" },
+        { id: "315123", index: "3", name: "GPS Device" }
       ]
     },
     { id: "ProdCourses" },
@@ -39,8 +39,10 @@ function Courses() {
         return (
           <Link to={`/menu/${categoryId}/${course.id}`}>
             <h5 key={course}>
-              {index + 1} {": "}
-              {course.name}
+              -{" "}
+              <u>
+                {course.name} {`(${index + 1})`}
+              </u>
             </h5>
           </Link>
         );
