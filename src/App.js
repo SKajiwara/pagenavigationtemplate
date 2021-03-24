@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import Navbar from "./components/Navbar";
 import Courses from "./Courses.js";
 import CourseContents from "./CourseContents.js";
 import Content from "./Content.js";
@@ -16,6 +17,7 @@ class App extends React.Component {
     return (
       <Router>
         <div>
+          <Navbar />
           <Switch>
             <Route exact path="/" component={Login} />
             <Route exact path="/menu" component={Menu} />
